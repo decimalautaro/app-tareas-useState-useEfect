@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import { CreadorTarea } from "./components/CreadorTarea";
+import { TablaTareas } from "./components/TablaTareas";
 
 function App() {
   const [listarTareas, setListarTareas] = useState([]);
@@ -24,23 +25,8 @@ function App() {
   return (
     <div className="App">
       <CreadorTarea  crearNuevaTarea={crearNuevaTarea}/>
-      
-      <table>
-        <thead>
-          <tr>
-            <th>Tareas</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            listarTareas.map(tareas => (
-            <tr key={tareas.name}>
-              <td>{tareas.name}</td>
-            </tr>
-            ))
-          }
-        </tbody>
-      </table>
+      <TablaTareas tareas={listarTareas}/>
+
     </div>
   );
 }
