@@ -7,7 +7,6 @@ export const CreadorTarea = ({crearNuevaTarea}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     crearNuevaTarea(nuevaTarea)
-    localStorage.setItem("tarea", nuevaTarea);
     setNuevaTarea("");
   };
   return (
