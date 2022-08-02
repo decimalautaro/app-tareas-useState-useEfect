@@ -1,10 +1,12 @@
 import React from "react";
 import { useState } from "react";
-export const CreadorTarea = () => {
-  const [nuevaTarea, setNuevaTarea] = useState();
+export const CreadorTarea = ({crearNuevaTarea}) => {
+
+  const [nuevaTarea, setNuevaTarea] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    crearNuevaTarea(nuevaTarea)
     localStorage.setItem("tarea", nuevaTarea);
     setNuevaTarea("");
   };
