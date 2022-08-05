@@ -1,22 +1,19 @@
-import React from 'react'
+import React from "react";
+import { FilaTarea } from "./FilaTarea";
 
-export const TablaTareas = ({tareas}) => {
+export const TablaTareas = ({ tareas, alternarTarea }) => {
   return (
-      <table>
-        <thead>
-          <tr>
-            <th>Tareas</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            tareas.map(tarea=> (
-            <tr key={tarea.name}>
-              <td>{tarea.name}</td>
-            </tr>
-            ))
-          }
-        </tbody>
-      </table>
-  )
-}
+    <table>
+      <thead>
+        <tr>
+          <th>Tareas</th>
+        </tr>
+      </thead>
+      <tbody>
+        {tareas.map((tarea) => (
+          <FilaTarea tarea={tarea} key={tarea.name}  alternarTarea= {alternarTarea}/>
+        ))}
+      </tbody>
+    </table>
+  );
+};

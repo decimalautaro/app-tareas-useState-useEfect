@@ -11,6 +11,10 @@ function App() {
       setListarTareas([...listarTareas,{name: nombreTarea, hecha: false}])
     }
   }
+  const alternarTarea = tarea=>{
+    setListarTareas(
+    listarTareas.map((t) => (t === tarea.name) ? {...t,hecha: !t.hecha} : t))
+  }
 
   useEffect(()=>{
     let data = localStorage.getItem('tareas');
@@ -25,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <CreadorTarea  crearNuevaTarea={crearNuevaTarea}/>
-      <TablaTareas tareas={listarTareas}/>
+      <TablaTareas tareas={listarTareas} alternarTarea={alternarTarea}/>
 
     </div>
   );
