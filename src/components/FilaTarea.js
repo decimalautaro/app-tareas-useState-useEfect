@@ -1,6 +1,6 @@
 import React from "react";
 
-export const FilaTarea = ({ tarea, alternarTarea}) => {
+export const FilaTarea = ({ tarea, alternarTarea } ) => {
   return (
     <tr>
       <td>

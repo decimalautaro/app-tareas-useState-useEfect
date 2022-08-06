@@ -10,9 +10,11 @@ export const TablaTareas = ({ tareas, alternarTarea }) => {
         </tr>
       </thead>
       <tbody>
-        {tareas.map((tarea) => (
+        {
+        tareas.map((tarea) => (
           <FilaTarea tarea={tarea} key={tarea.name}  alternarTarea= {alternarTarea}/>
-        ))}
+        ))
+        }
       </tbody>
     </table>
   );
