@@ -7,7 +7,7 @@ import { TablaTareas } from "./components/TablaTareas";
 
 function App() {
   const [listarTareas, setListarTareas] = useState([]);
-  const [mostrarEstado, setMostrarEstado] = useState(false);
+  const [mostrarEstado, setMostrarEstado] = useState(true);
 
   function crearNuevaTarea(nombreTarea) {
     if (!listarTareas.find((tarea) => tarea.name === nombreTarea)) {
