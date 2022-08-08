@@ -3,7 +3,7 @@ import React from "react";
 export const FilaTarea = ({ tarea, alternarTarea } ) => {
   return (
     <tr>
-      <td>
+      <td className="d-flex justify-content-between">
         {tarea.name}
         <input
           type="checkbox"

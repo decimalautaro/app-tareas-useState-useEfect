@@ -11,15 +11,23 @@ export const CreadorTarea = ({crearNuevaTarea}) => {
     setNuevaTarea("");
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="my-2 row">
+      <div className="col-9">
       <input
+        className="form-control"
         type="text"
         placeholder="Ingresar nueva tarea"
         value={nuevaTarea}
         onChange={(e) => setNuevaTarea(e.target.value)}
       />
 
-      <button>Guardar tarea</button>
+      </div>
+      <div className="col-3">
+
+      <button className="btn btn-primary btn-sm">Guardar tarea</button>
+
+      </div>
+      
     </form>
   );
 };
