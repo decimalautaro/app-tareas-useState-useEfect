@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import { ControlVisibilidad } from "./components/ControlVisibilidad";
 import { CreadorTarea } from "./components/CreadorTarea";
 import { TablaTareas } from "./components/TablaTareas";
 
@@ -27,6 +28,11 @@ function App() {
     }
   }, []);
 
+  const limpiarTareas = ()=>{
+    setListarTareas ( listarTareas.filter ((tarea)=> !tarea.hecha ))
+    setMostrarEstado(false)
+  }
+
   useEffect(() => {
     localStorage.setItem("tareas", JSON.stringify(listarTareas));
   }, [listarTareas]);
@@ -34,14 +40,12 @@ function App() {
     <div className="App">
       <CreadorTarea crearNuevaTarea={crearNuevaTarea} />
       <TablaTareas tareas={listarTareas} alternarTarea={alternarTarea} />
-
-      <div>
-        <input
-          type="checkbox"
-          onChange={(e) => setMostrarEstado(!mostrarEstado)}
-        />
-        <label>Mostrar tareas hechas</label>
-      </div>
+      <ControlVisibilidad
+        isChecked= {mostrarEstado}
+        setMostrarEstado = {(checked)=>setMostrarEstado(checked)}
+        limpiarTareas= {limpiarTareas}
+      />
+      
 
       {mostrarEstado === true && (
         <TablaTareas
